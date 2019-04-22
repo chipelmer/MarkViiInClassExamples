@@ -7,72 +7,52 @@ namespace MarkViiInClassExamples
     {
         static void Main(string[] args)
         {
-            List<string> guesses = new List<string>();
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine("Please enter a guess:");
-                string guess = Console.ReadLine();
+            Truck a = new Truck();
+            a.CabType = "Super";
 
-                if (guesses.Contains(guess))
-                {
-                    continue;
-                }
+            Console.WriteLine(a.BedSize);
+        }
+    }
+
+    class Truck
+    {
+        public string CabType { get; set; }
+
+        public int BedSize
+        {
+            get
+            {
+                if (CabType == "Single")
+                    return totalTruckLength - 6;
+                else if (CabType == "Double")
+                    return totalTruckLength - 10;
+                else if (CabType == "Super")
+                    return totalTruckLength - 15;
                 else
-                {
-                    guesses.Add(guess);
-                }
-
-                Console.WriteLine("That's a new guess!");
-            }
-
-            Console.WriteLine("You guessed:");
-            foreach (string guess in guesses)
-            {
-                Console.WriteLine(guess);
+                    return totalTruckLength;
             }
         }
 
-        static bool ContainsAtLeastTwoEvenNumbers(List<int> numbers)
+        private int totalTruckLength = 20;
+
+        public int GetBedSize()
         {
-            int countOfEvens = 0;
-            foreach (int num in numbers)
+            if (CabType == "Single")
             {
-                if (num % 2 == 0)
-                {
-                    countOfEvens += 1;
-                }
-
-                if (countOfEvens >= 2)
-                {
-                    return true;
-                }
+                return totalTruckLength - 6;
             }
-
-            return false;
-        }
-
-        static bool ContainsAnEight(int[] numbers)
-        {
-            foreach (int number in numbers)
+            else if (CabType == "Double")
             {
-                if (number == 8)
-                {
-                    return true;
-                }
+                return totalTruckLength - 10;
             }
-
-            return false;
-        }
-
-        static int SumArray(int[] numbers)
-        {
-            int total = 0;
-            foreach (int number in numbers)
+            else if (CabType == "Super")
             {
-                total = total + number;
+                return totalTruckLength - 15;
             }
-
-            return total;
+            else
+            {
+                return totalTruckLength;
+            }
         }
     }
 }
