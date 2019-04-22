@@ -8,51 +8,47 @@ namespace MarkViiInClassExamples
         static void Main(string[] args)
         {
             Truck a = new Truck();
-            a.CabType = "Super";
+            Car b = new Car();
+            Motorcycle c = new Motorcycle();
 
-            Console.WriteLine(a.BedSize);
+            Add100ToMileage(a);
+            Add100ToMileage(b);
+            Add100ToMileage(c);
+        }
+
+        static int Add100ToMileage(Vehicle vehicle)
+        {
+            return vehicle.Mileage + 100;
         }
     }
 
-    class Truck
+    class Vehicle
     {
-        public string CabType { get; set; }
+        public string Model { get; set; }
+        public int Mileage { get; set; }
+    }
 
-        public int BedSize
+    class Car : Vehicle
+    {
+        public void Honk()
         {
-            get
-            {
-                if (CabType == "Single")
-                    return totalTruckLength - 6;
-                else if (CabType == "Double")
-                    return totalTruckLength - 10;
-                else if (CabType == "Super")
-                    return totalTruckLength - 15;
-                else
-                    return totalTruckLength;
-            }
+            Console.WriteLine("Beep! Beep!");
         }
+    }
 
-        private int totalTruckLength = 20;
-
-        public int GetBedSize()
+    class Truck : Vehicle
+    {
+        public void RevEngine()
         {
-            if (CabType == "Single")
-            {
-                return totalTruckLength - 6;
-            }
-            else if (CabType == "Double")
-            {
-                return totalTruckLength - 10;
-            }
-            else if (CabType == "Super")
-            {
-                return totalTruckLength - 15;
-            }
-            else
-            {
-                return totalTruckLength;
-            }
+            Console.WriteLine("Vrooom!");
+        }
+    }
+
+    class Motorcycle : Vehicle
+    {
+        public void PopWheelie()
+        {
+            Console.WriteLine("Check it out!");
         }
     }
 }
