@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace MarkViiInClassExamples
 {
@@ -7,48 +8,25 @@ namespace MarkViiInClassExamples
     {
         static void Main(string[] args)
         {
-            Truck a = new Truck();
-            Car b = new Car();
-            Motorcycle c = new Motorcycle();
-
-            Add100ToMileage(a);
-            Add100ToMileage(b);
-            Add100ToMileage(c);
+            string joke = GetJoke();
+            Console.WriteLine(joke);
         }
 
-        static int Add100ToMileage(Vehicle vehicle)
+        static string GetJoke()
         {
-            return vehicle.Mileage + 100;
+            WebClient webClient = new WebClient();
+            string webResponse = webClient.DownloadString("https://api.chucknorris.io/jokes/random");
+            return JObject.Parse(webResponse).GetValue("value").ToString();
         }
-    }
 
-    class Vehicle
-    {
-        public string Model { get; set; }
-        public int Mileage { get; set; }
-    }
-
-    class Car : Vehicle
-    {
-        public void Honk()
+        static string GetJoke_ManualJsonParse()
         {
-            Console.WriteLine("Beep! Beep!");
-        }
-    }
-
-    class Truck : Vehicle
-    {
-        public void RevEngine()
-        {
-            Console.WriteLine("Vrooom!");
-        }
-    }
-
-    class Motorcycle : Vehicle
-    {
-        public void PopWheelie()
-        {
-            Console.WriteLine("Check it out!");
+            WebClient webClient = new WebClient();
+            string webResponse = webClient.DownloadString("https://api.chucknorris.io/jokes/random");
+            int jokeKeyLocation = webResponse.IndexOf("value");
+            int jokeTextLocation = jokeKeyLocation + 5 + 3; // 5 for "value", 3 for quotes and colon
+            string joke = webResponse.Substring(jokeTextLocation, webResponse.Length - 2 - jokeTextLocation);
+            return joke;
         }
     }
 }
