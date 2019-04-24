@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace MarkViiInClassExamples
 {
@@ -6,33 +7,21 @@ namespace MarkViiInClassExamples
     {
         static void Main(string[] args)
         {
-            House house = new House();
+            int[] numbers = { 5, 3, 7, 8, 9, 2, 34, 5 };
 
-            Room kitchen = new Room("kitchen", house);
-            kitchen.NumberOfWindows = 2;
-            kitchen.Description = "It is clean and has granite countertops.";
+            // Add5() is an extension method that we wrote
+            int numberPlus5 = 3.Add5();
 
-            Room diningRoom = new Room("dining room", house);
-            diningRoom.NumberOfWindows = 4;
-            diningRoom.Description = "It has hardwoods and a large chandelier.";
+            // Sum() is an extension method from Linq
+            int sumOfNumbers = numbers.Sum();
+        }
+    }
 
-            Room livingRoom = new Room("living room", house);
-            livingRoom.NumberOfWindows = 2;
-            livingRoom.Description = "It has carpet and a vaulted ceiling.";
-
-            Room masterBedroom = new Room("master bedroom", house);
-            masterBedroom.NumberOfWindows = 2;
-            masterBedroom.Description = "It has carpet and a ceiling fan.";
-
-            Realtor realtor = new Realtor();
-            Visitor visitor = new Visitor();
-
-            realtor.WelcomeVisitor(visitor);
-            
-            foreach (Room room in house.Rooms)
-            {
-                realtor.ShowRoom(room);
-            }
+    static class ExtensionMethods
+    {
+        public static int Add5(this int number)
+        {
+            return number + 5;
         }
     }
 }
