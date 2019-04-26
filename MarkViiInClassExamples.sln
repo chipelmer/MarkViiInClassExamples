@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkViiInClassExamples", "MarkViiInClassExamples\MarkViiInClassExamples.csproj", "{B67F82EA-4B34-4A20-B39B-31E7F7BDB5D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarkViiInClassExamples", "MarkViiInClassExamples\MarkViiInClassExamples.csproj", "{B67F82EA-4B34-4A20-B39B-31E7F7BDB5D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipCalculator.Tests", "TipCalculator.Tests\TipCalculator.Tests.csproj", "{3095C0EE-2552-420E-A6C9-BFBD82940E9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B67F82EA-4B34-4A20-B39B-31E7F7BDB5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B67F82EA-4B34-4A20-B39B-31E7F7BDB5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B67F82EA-4B34-4A20-B39B-31E7F7BDB5D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3095C0EE-2552-420E-A6C9-BFBD82940E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3095C0EE-2552-420E-A6C9-BFBD82940E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3095C0EE-2552-420E-A6C9-BFBD82940E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3095C0EE-2552-420E-A6C9-BFBD82940E9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
