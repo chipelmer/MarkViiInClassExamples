@@ -7,30 +7,25 @@ namespace MarkViiInClassExamples
     {
         static void Main(string[] args)
         {
-            List<int> numbersList = new List<int>();
-            Stack<int> numbersStack = new Stack<int>();
-            Queue<int> numbersQueue = new Queue<int>();
-            Bag<int> numbersBag = new Bag<int>();
-        }
-    }
-
-    class Bag<T>
-    {
-        private List<T> items = new List<T>();
-
-        public void PutInBag(T item)
-        {
-            items.Add(item);
+            int answer = Factorial(5);
+            Console.WriteLine(answer);
         }
 
-        public T GetFromBag()
+        static int Factorial(int n)
         {
-            int randomIndex = new Random().Next(0, items.Count);
-
-            T item = items[randomIndex];
-            items.RemoveAt(randomIndex);
-
-            return item;
+            Console.WriteLine($"Calculating {n}!");
+            if (n == 0)
+            {
+                Console.WriteLine("0! is 1, so returning 1 to caller");
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine($"Multiplying {n} times {n - 1}! (n-1)");
+                int result = n * Factorial(n - 1);
+                Console.WriteLine($"{n}! was {result}, returning {result} to caller");
+                return result;
+            }
         }
     }
 }
