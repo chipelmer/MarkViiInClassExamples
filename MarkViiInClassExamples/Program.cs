@@ -7,25 +7,39 @@ namespace MarkViiInClassExamples
     {
         static void Main(string[] args)
         {
-            int answer = Factorial(5);
-            Console.WriteLine(answer);
-        }
+            int[][] jaggedArray = new int[][]
+            {
+                new int[] { 99, 100, 101 },
+                new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
+                new int[] { 7 },
+                new int[] { 8, 8, 8, 8, 8 },
+                new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+            };
 
-        static int Factorial(int n)
-        {
-            Console.WriteLine($"Calculating {n}!");
-            if (n == 0)
+            int a = jaggedArray[0][1]; // 100
+            int b = jaggedArray[2][1]; // index out of bounds
+            int c = jaggedArray[1][0]; // 3
+            int[] d = jaggedArray[4]; // gets an array, not a single int
+
+
+
+            int[,] multidimensionalArray = new int[,]
             {
-                Console.WriteLine("0! is 1, so returning 1 to caller");
-                return 1;
-            }
-            else
+                { 3, 4, 3 },
+                { 7, 7, 7 },
+                { 9, 8, 9 },
+                { 1, 1, 1 },
+                { 4, 3, 2 }
+            };
+
+            int[][] jaggedSameAsMultiArray = new int[][]
             {
-                Console.WriteLine($"Multiplying {n} times {n - 1}! (n-1)");
-                int result = n * Factorial(n - 1);
-                Console.WriteLine($"{n}! was {result}, returning {result} to caller");
-                return result;
-            }
+                new int[] { 3, 4, 4 },
+                new int[] { 7, 7, 7 },
+                new int[] { 9, 8, 9 },
+                new int[] { 1, 1, 1 },
+                new int[] { 4, 3, 2 }
+            };
         }
     }
 }
